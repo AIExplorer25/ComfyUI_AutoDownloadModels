@@ -1,2 +1,2 @@
 # ComfyUI_AutoDownloadModels
-This custom nodes helps to auto download models from huggingface
+This custom node helps to auto download models from huggingface
