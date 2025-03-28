@@ -74,13 +74,13 @@ class WANModelsAutoDownload:
             if(Wan2_1_T2V_1_3B_bf16): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2_1-T2V-1_3B_bf16.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
             if(Wan2_1_T2V_1_3B_fp32): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2_1-T2V-1_3B_fp32.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
             if(Wan2_1_T2V_1_3B_fp8_e4m3fn): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2_1-T2V-1_3B_fp8_e4m3fn.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
-            if(Wan2_1_VAE_bf16): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2_1_VAE_bf16.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
-            if(Wan2_1_VAE_fp32): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2_1_VAE_fp32.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
-            if(open_clip_xlm_roberta_large_vit_huge_14_visual_fp16): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="open-clip-xlm-roberta-large-vit-huge-14_visual_fp16.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
-            if(open_clip_xlm_roberta_large_vit_huge_14_visual_fp32): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="open-clip-xlm-roberta-large-vit-huge-14_visual_fp32.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(Wan2_1_VAE_bf16): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2_1_VAE_bf16.safetensors", local_dir="/workspace/ComfyUI/models/vae/");  status=status+model_path+" done."
+            if(Wan2_1_VAE_fp32): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2_1_VAE_fp32.safetensors", local_dir="/workspace/ComfyUI/models/vae/");  status=status+model_path+" done."
+            if(open_clip_xlm_roberta_large_vit_huge_14_visual_fp16): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="open-clip-xlm-roberta-large-vit-huge-14_visual_fp16.safetensors", local_dir="/workspace/ComfyUI/models/clip/");  status=status+model_path+" done."
+            if(open_clip_xlm_roberta_large_vit_huge_14_visual_fp32): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="open-clip-xlm-roberta-large-vit-huge-14_visual_fp32.safetensors", local_dir="/workspace/ComfyUI/models/clip/");  status=status+model_path+" done."
             if(taew2_1): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="taew2_1.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
-            if(umt5_xxl_enc_bf16): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="umt5-xxl-enc-bf16.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
-            if(umt5_xxl_enc_fp8_e4m3fn): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="umt5-xxl-enc-fp8_e4m3fn.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(umt5_xxl_enc_bf16): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="umt5-xxl-enc-bf16.safetensors", local_dir="/workspace/ComfyUI/models/clip/");  status=status+model_path+" done."
+            if(umt5_xxl_enc_fp8_e4m3fn): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="umt5-xxl-enc-fp8_e4m3fn.safetensors", local_dir="/workspace/ComfyUI/models/clip/");  status=status+model_path+" done."
 
 
             return (model_path,)
@@ -109,7 +109,7 @@ class ALIMAMAFUNCONTROLWANModelsAutoDownload:
             status=""
             if(Wan2_1_VAE_pth): model_path = hf_hub_download(repo_id="alibaba-pai/Wan2.1-Fun-1.3B-Control", filename="Wan2.1_VAE.pth", local_dir="/workspace/ComfyUI/models/vae/");  status=status+model_path+" done."
             if(diffusion_pytorch_model): model_path = hf_hub_download(repo_id="alibaba-pai/Wan2.1-Fun-1.3B-Control", filename="diffusion_pytorch_model.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
-            if(models_clip_open_clip_xlm_roberta_large_vit_huge_14_pth): model_path = hf_hub_download(repo_id="alibaba-pai/Wan2.1-Fun-1.3B-Control", filename="models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth", local_dir="/workspace/ComfyUI/models/clip_vision/");  status=status+model_path+" done."
+            if(models_clip_open_clip_xlm_roberta_large_vit_huge_14_pth): model_path = hf_hub_download(repo_id="alibaba-pai/Wan2.1-Fun-1.3B-Control", filename="models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth", local_dir="/workspace/ComfyUI/models/clip/");  status=status+model_path+" done."
             if(models_t5_umt5_xxl_enc_bf16_pth): model_path = hf_hub_download(repo_id="alibaba-pai/Wan2.1-Fun-1.3B-Control", filename="models_t5_umt5-xxl-enc-bf16.pth", local_dir="/workspace/ComfyUI/models/clip/");  status=status+model_path+" done."
 
             return (model_path,)
