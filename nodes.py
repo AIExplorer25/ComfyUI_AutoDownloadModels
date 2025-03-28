@@ -27,6 +27,148 @@ class AutoDownloadModels:
 
             return (model_path,)
 
+
+class WANModelsAutoDownload:
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+
+                "Wan2_1_Fun_Control_14B_fp8_e4m3fn": ("BOOLEAN", {"tooltip": "select to download Wan2_1_Fun_Control_14B_fp8_e4m3fn"}),
+                "Wan2_1_Fun_InP_14B_fp8_e4m3fn": ("BOOLEAN", {"tooltip": "select to download Wan2_1_Fun_InP_14B_fp8_e4m3fn"}),
+                "Wan2_1_I2V_14B_480P_fp8_e4m3fn": ("BOOLEAN", {"tooltip": "select to download Wan2_1_I2V_14B_480P_fp8_e4m3fn"}),
+                "Wan2_1_I2V_14B_480P_fp8_e5m2": ("BOOLEAN", {"tooltip": "select to download Wan2_1_I2V_14B_480P_fp8_e5m2"}),
+                "Wan2_1_I2V_14B_720P_fp8_e4m3fn": ("BOOLEAN", {"tooltip": "select to download Wan2_1_I2V_14B_720P_fp8_e4m3fn"}),
+                "Wan2_1_I2V_14B_720P_fp8_e5m2": ("BOOLEAN", {"tooltip": "select to download Wan2_1_I2V_14B_720P_fp8_e5m2"}),
+                "Wan2_1_T2V_14B_fp8_e4m3fn": ("BOOLEAN", {"tooltip": "select to download Wan2_1_T2V_14B_fp8_e4m3fn"}),
+                "Wan2_1_T2V_14B_fp8_e5m2": ("BOOLEAN", {"tooltip": "select to download Wan2_1_T2V_14B_fp8_e5m2"}),
+                "Wan2_1_T2V_1_3B_bf16": ("BOOLEAN", {"tooltip": "select to download Wan2_1_T2V_1_3B_bf16"}),
+                "Wan2_1_T2V_1_3B_fp32": ("BOOLEAN", {"tooltip": "select to download Wan2_1_T2V_1_3B_fp32"}),
+                "Wan2_1_T2V_1_3B_fp8_e4m3fn": ("BOOLEAN", {"tooltip": "select to download Wan2_1_T2V_1_3B_fp8_e4m3fn"}),
+                "Wan2_1_VAE_bf16": ("BOOLEAN", {"tooltip": "select to download Wan2_1_VAE_bf16"}),
+                "Wan2_1_VAE_fp32": ("BOOLEAN", {"tooltip": "select to download Wan2_1_VAE_fp32"}),
+                "open_clip_xlm_roberta_large_vit_huge_14_visual_fp16": ("BOOLEAN", {"tooltip": "select to download open_clip_xlm_roberta_large_vit_huge_14_visual_fp16"}),
+                "open_clip_xlm_roberta_large_vit_huge_14_visual_fp32": ("BOOLEAN", {"tooltip": "select to download open_clip_xlm_roberta_large_vit_huge_14_visual_fp32"}),
+                "taew2_1": ("BOOLEAN", {"tooltip": "select to download taew2_1"}),
+                "umt5_xxl_enc_bf16": ("BOOLEAN", {"tooltip": "select to download umt5_xxl_enc_bf16"}),
+                "umt5_xxl_enc_fp8_e4m3fn": ("BOOLEAN", {"tooltip": "select to download umt5_xxl_enc_fp8_e4m3fn"}),
+
+            },
+        }
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("path",)
+    FUNCTION = "DownloadModel"
+    CATEGORY = "DownloadModel"
+    DESCRIPTION = "This node downloads ALL Kijay's WAN  models from huggingface models"
+
+    def DownloadModel(self, Wan2_1_Fun_Control_14B_fp8_e4m3fn , Wan2_1_Fun_InP_14B_fp8_e4m3fn , Wan2_1_I2V_14B_480P_fp8_e4m3fn , Wan2_1_I2V_14B_480P_fp8_e5m2 , Wan2_1_I2V_14B_720P_fp8_e4m3fn , Wan2_1_I2V_14B_720P_fp8_e5m2 , Wan2_1_T2V_14B_fp8_e4m3fn , Wan2_1_T2V_14B_fp8_e5m2 , Wan2_1_T2V_1_3B_bf16 , Wan2_1_T2V_1_3B_fp32 , Wan2_1_T2V_1_3B_fp8_e4m3fn , Wan2_1_VAE_bf16 , Wan2_1_VAE_fp32 , open_clip_xlm_roberta_large_vit_huge_14_visual_fp16 , open_clip_xlm_roberta_large_vit_huge_14_visual_fp32 , taew2_1 , umt5_xxl_enc_bf16 , umt5_xxl_enc_fp8_e4m3fn):
+            status=""
+            if(Wan2_1_Fun_Control_14B_fp8_e4m3fn): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2.1-Fun-Control-14B_fp8_e4m3fn.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(Wan2_1_Fun_InP_14B_fp8_e4m3fn): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2.1-Fun-InP-14B_fp8_e4m3fn.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(Wan2_1_I2V_14B_480P_fp8_e4m3fn): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2_1-I2V-14B-480P_fp8_e4m3fn.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(Wan2_1_I2V_14B_480P_fp8_e5m2): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2_1-I2V-14B-480P_fp8_e5m2.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(Wan2_1_I2V_14B_720P_fp8_e4m3fn): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2_1-I2V-14B-720P_fp8_e4m3fn.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(Wan2_1_I2V_14B_720P_fp8_e5m2): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2_1-I2V-14B-720P_fp8_e5m2.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(Wan2_1_T2V_14B_fp8_e4m3fn): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2_1-T2V-14B_fp8_e4m3fn.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(Wan2_1_T2V_14B_fp8_e5m2): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2_1-T2V-14B_fp8_e5m2.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(Wan2_1_T2V_1_3B_bf16): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2_1-T2V-1_3B_bf16.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(Wan2_1_T2V_1_3B_fp32): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2_1-T2V-1_3B_fp32.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(Wan2_1_T2V_1_3B_fp8_e4m3fn): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2_1-T2V-1_3B_fp8_e4m3fn.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(Wan2_1_VAE_bf16): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2_1_VAE_bf16.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(Wan2_1_VAE_fp32): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="Wan2_1_VAE_fp32.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(open_clip_xlm_roberta_large_vit_huge_14_visual_fp16): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="open-clip-xlm-roberta-large-vit-huge-14_visual_fp16.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(open_clip_xlm_roberta_large_vit_huge_14_visual_fp32): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="open-clip-xlm-roberta-large-vit-huge-14_visual_fp32.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(taew2_1): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="taew2_1.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(umt5_xxl_enc_bf16): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="umt5-xxl-enc-bf16.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(umt5_xxl_enc_fp8_e4m3fn): model_path = hf_hub_download(repo_id="Kijai/WanVideo_comfy", filename="umt5-xxl-enc-fp8_e4m3fn.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+
+
+            return (model_path,)
+
+class ALIMAMAFUNCONTROLWANModelsAutoDownload:
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+
+            "Wan2_1_VAE_pth": ("BOOLEAN", {"tooltip": "select to download Wan2_1_VAE_pth"}),
+            "diffusion_pytorch_model": ("BOOLEAN", {"tooltip": "select to download diffusion_pytorch_model"}),
+            "models_clip_open_clip_xlm_roberta_large_vit_huge_14_pth": ("BOOLEAN", {"tooltip": "select to download models_clip_open_clip_xlm_roberta_large_vit_huge_14_pth"}),
+            "models_t5_umt5_xxl_enc_bf16_pth": ("BOOLEAN", {"tooltip": "select to download models_t5_umt5_xxl_enc_bf16_pth"}),
+
+            },
+        }
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("path",)
+    FUNCTION = "DownloadModel"
+    CATEGORY = "DownloadModel"
+    DESCRIPTION = "This node downloads ALL Kijay's WAN  models from huggingface models"
+
+    def DownloadModel(self, Wan2_1_VAE_pth , diffusion_pytorch_model , models_clip_open_clip_xlm_roberta_large_vit_huge_14_pth , models_t5_umt5_xxl_enc_bf16_pth
+):
+            status=""
+            if(Wan2_1_VAE_pth): model_path = hf_hub_download(repo_id="alibaba-pai/Wan2.1-Fun-1.3B-Control", filename="Wan2.1_VAE.pth", local_dir="/workspace/ComfyUI/models/vae/");  status=status+model_path+" done."
+            if(diffusion_pytorch_model): model_path = hf_hub_download(repo_id="alibaba-pai/Wan2.1-Fun-1.3B-Control", filename="diffusion_pytorch_model.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(models_clip_open_clip_xlm_roberta_large_vit_huge_14_pth): model_path = hf_hub_download(repo_id="alibaba-pai/Wan2.1-Fun-1.3B-Control", filename="models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth", local_dir="/workspace/ComfyUI/models/clip_vision/");  status=status+model_path+" done."
+            if(models_t5_umt5_xxl_enc_bf16_pth): model_path = hf_hub_download(repo_id="alibaba-pai/Wan2.1-Fun-1.3B-Control", filename="models_t5_umt5-xxl-enc-bf16.pth", local_dir="/workspace/ComfyUI/models/clip/");  status=status+model_path+" done."
+
+            return (model_path,)
+class WANALMAMAModelsAutoDownload:
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+
+            "split_files_clip_vision_clip_vision_h": ("BOOLEAN", {"tooltip": "select to download split_files_clip_vision_clip_vision_h"}),
+            "split_files_diffusion_models_wan2_1_i2v_480p_14B_bf16": ("BOOLEAN", {"tooltip": "select to download split_files_diffusion_models_wan2_1_i2v_480p_14B_bf16"}),
+            "split_files_diffusion_models_wan2_1_i2v_480p_14B_fp16": ("BOOLEAN", {"tooltip": "select to download split_files_diffusion_models_wan2_1_i2v_480p_14B_fp16"}),
+            "split_files_diffusion_models_wan2_1_i2v_480p_14B_fp8_e4m3fn": ("BOOLEAN", {"tooltip": "select to download split_files_diffusion_models_wan2_1_i2v_480p_14B_fp8_e4m3fn"}),
+            "split_files_diffusion_models_wan2_1_i2v_480p_14B_fp8_scaled": ("BOOLEAN", {"tooltip": "select to download split_files_diffusion_models_wan2_1_i2v_480p_14B_fp8_scaled"}),
+            "split_files_diffusion_models_wan2_1_i2v_720p_14B_bf16": ("BOOLEAN", {"tooltip": "select to download split_files_diffusion_models_wan2_1_i2v_720p_14B_bf16"}),
+            "split_files_diffusion_models_wan2_1_i2v_720p_14B_fp16": ("BOOLEAN", {"tooltip": "select to download split_files_diffusion_models_wan2_1_i2v_720p_14B_fp16"}),
+            "split_files_diffusion_models_wan2_1_i2v_720p_14B_fp8_e4m3fn": ("BOOLEAN", {"tooltip": "select to download split_files_diffusion_models_wan2_1_i2v_720p_14B_fp8_e4m3fn"}),
+            "split_files_diffusion_models_wan2_1_i2v_720p_14B_fp8_scaled": ("BOOLEAN", {"tooltip": "select to download split_files_diffusion_models_wan2_1_i2v_720p_14B_fp8_scaled"}),
+            "split_files_diffusion_models_wan2_1_t2v_1_3B_bf16": ("BOOLEAN", {"tooltip": "select to download split_files_diffusion_models_wan2_1_t2v_1_3B_bf16"}),
+            "split_files_diffusion_models_wan2_1_t2v_1_3B_fp16": ("BOOLEAN", {"tooltip": "select to download split_files_diffusion_models_wan2_1_t2v_1_3B_fp16"}),
+            "split_files_diffusion_models_wan2_1_t2v_14B_bf16": ("BOOLEAN", {"tooltip": "select to download split_files_diffusion_models_wan2_1_t2v_14B_bf16"}),
+            "split_files_diffusion_models_wan2_1_t2v_14B_fp16": ("BOOLEAN", {"tooltip": "select to download split_files_diffusion_models_wan2_1_t2v_14B_fp16"}),
+            "split_files_diffusion_models_wan2_1_t2v_14B_fp8_e4m3fn": ("BOOLEAN", {"tooltip": "select to download split_files_diffusion_models_wan2_1_t2v_14B_fp8_e4m3fn"}),
+            "split_files_diffusion_models_wan2_1_t2v_14B_fp8_scaled": ("BOOLEAN", {"tooltip": "select to download split_files_diffusion_models_wan2_1_t2v_14B_fp8_scaled"}),
+            "split_files_text_encoders_umt5_xxl_fp16": ("BOOLEAN", {"tooltip": "select to download split_files_text_encoders_umt5_xxl_fp16"}),
+            "split_files_text_encoders_umt5_xxl_fp8_e4m3fn_scaled": ("BOOLEAN", {"tooltip": "select to download split_files_text_encoders_umt5_xxl_fp8_e4m3fn_scaled"}),
+            "split_files_vae_wan_2_1_vae": ("BOOLEAN", {"tooltip": "select to download split_files_vae_wan_2_1_vae"}),
+
+            },
+        }
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("path",)
+    FUNCTION = "DownloadModel"
+    CATEGORY = "DownloadModel"
+    DESCRIPTION = "This node downloads ALL ALIMAMA's WAN  models from huggingface Comfy-Org/Wan_2.1_ComfyUI_repackaged repo"
+
+    def DownloadModel(self, split_files_clip_vision_clip_vision_h , split_files_diffusion_models_wan2_1_i2v_480p_14B_bf16 , split_files_diffusion_models_wan2_1_i2v_480p_14B_fp16 , split_files_diffusion_models_wan2_1_i2v_480p_14B_fp8_e4m3fn , split_files_diffusion_models_wan2_1_i2v_480p_14B_fp8_scaled , split_files_diffusion_models_wan2_1_i2v_720p_14B_bf16 , split_files_diffusion_models_wan2_1_i2v_720p_14B_fp16 , split_files_diffusion_models_wan2_1_i2v_720p_14B_fp8_e4m3fn , split_files_diffusion_models_wan2_1_i2v_720p_14B_fp8_scaled , split_files_diffusion_models_wan2_1_t2v_1_3B_bf16 , split_files_diffusion_models_wan2_1_t2v_1_3B_fp16 , split_files_diffusion_models_wan2_1_t2v_14B_bf16 , split_files_diffusion_models_wan2_1_t2v_14B_fp16 , split_files_diffusion_models_wan2_1_t2v_14B_fp8_e4m3fn , split_files_diffusion_models_wan2_1_t2v_14B_fp8_scaled , split_files_text_encoders_umt5_xxl_fp16 , split_files_text_encoders_umt5_xxl_fp8_e4m3fn_scaled , split_files_vae_wan_2_1_vae):
+            status=""
+            if(split_files_clip_vision_clip_vision_h): model_path = hf_hub_download(repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged", filename="split_files/clip_vision/clip_vision_h.safetensors", local_dir="/workspace/ComfyUI/models/clip_vision/");  status=status+model_path+" done."
+            if(split_files_diffusion_models_wan2_1_i2v_480p_14B_bf16): model_path = hf_hub_download(repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged", filename="split_files/diffusion_models/wan2.1_i2v_480p_14B_bf16.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(split_files_diffusion_models_wan2_1_i2v_480p_14B_fp16): model_path = hf_hub_download(repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged", filename="split_files/diffusion_models/wan2.1_i2v_480p_14B_fp16.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(split_files_diffusion_models_wan2_1_i2v_480p_14B_fp8_e4m3fn): model_path = hf_hub_download(repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged", filename="split_files/diffusion_models/wan2.1_i2v_480p_14B_fp8_e4m3fn.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(split_files_diffusion_models_wan2_1_i2v_480p_14B_fp8_scaled): model_path = hf_hub_download(repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged", filename="split_files/diffusion_models/wan2.1_i2v_480p_14B_fp8_scaled.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(split_files_diffusion_models_wan2_1_i2v_720p_14B_bf16): model_path = hf_hub_download(repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged", filename="split_files/diffusion_models/wan2.1_i2v_720p_14B_bf16.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(split_files_diffusion_models_wan2_1_i2v_720p_14B_fp16): model_path = hf_hub_download(repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged", filename="split_files/diffusion_models/wan2.1_i2v_720p_14B_fp16.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(split_files_diffusion_models_wan2_1_i2v_720p_14B_fp8_e4m3fn): model_path = hf_hub_download(repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged", filename="split_files/diffusion_models/wan2.1_i2v_720p_14B_fp8_e4m3fn.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(split_files_diffusion_models_wan2_1_i2v_720p_14B_fp8_scaled): model_path = hf_hub_download(repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged", filename="split_files/diffusion_models/wan2.1_i2v_720p_14B_fp8_scaled.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(split_files_diffusion_models_wan2_1_t2v_1_3B_bf16): model_path = hf_hub_download(repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged", filename="split_files/diffusion_models/wan2.1_t2v_1.3B_bf16.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(split_files_diffusion_models_wan2_1_t2v_1_3B_fp16): model_path = hf_hub_download(repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged", filename="split_files/diffusion_models/wan2.1_t2v_1.3B_fp16.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(split_files_diffusion_models_wan2_1_t2v_14B_bf16): model_path = hf_hub_download(repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged", filename="split_files/diffusion_models/wan2.1_t2v_14B_bf16.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(split_files_diffusion_models_wan2_1_t2v_14B_fp16): model_path = hf_hub_download(repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged", filename="split_files/diffusion_models/wan2.1_t2v_14B_fp16.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(split_files_diffusion_models_wan2_1_t2v_14B_fp8_e4m3fn): model_path = hf_hub_download(repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged", filename="split_files/diffusion_models/wan2.1_t2v_14B_fp8_e4m3fn.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(split_files_diffusion_models_wan2_1_t2v_14B_fp8_scaled): model_path = hf_hub_download(repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged", filename="split_files/diffusion_models/wan2.1_t2v_14B_fp8_scaled.safetensors", local_dir="/workspace/ComfyUI/models/unet/");  status=status+model_path+" done."
+            if(split_files_text_encoders_umt5_xxl_fp16): model_path = hf_hub_download(repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged", filename="split_files/text_encoders/umt5_xxl_fp16.safetensors", local_dir="/workspace/ComfyUI/models/clip/");  status=status+model_path+" done."
+            if(split_files_text_encoders_umt5_xxl_fp8_e4m3fn_scaled): model_path = hf_hub_download(repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged", filename="split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors", local_dir="/workspace/ComfyUI/models/clip/");  status=status+model_path+" done."
+            if(split_files_vae_wan_2_1_vae): model_path = hf_hub_download(repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged", filename="split_files/vae/wan_2.1_vae.safetensors", local_dir="/workspace/ComfyUI/models/vae/");  status=status+model_path+" done."
+
+            return (model_path,)
+
 class AutoDownloadALLModels:
     @classmethod
     def INPUT_TYPES(s):
@@ -310,6 +452,12 @@ NODE_CLASS_MAPPINGS = {
       "GetModelsFromWorkflow": GetModelsFromWorkflow,
       "SetModelPath": SetModelPath,
       "AutoDownloadALLModels": AutoDownloadALLModels,
+      "WANModelsAutoDownload": WANModelsAutoDownload,
+      "WANALMAMAModelsAutoDownload": WANALMAMAModelsAutoDownload,
+      "ALIMAMAFUNCONTROLWANModelsAutoDownload": ALIMAMAFUNCONTROLWANModelsAutoDownload,
+      
+      
+      
       
     }
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -318,4 +466,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "GetModelsFromWorkflow": "Get Models From Workflow",
     "SetModelPath": "Set Model Path",
     "AutoDownloadALLModels": "Auto Download ALL Models",
+    "WANModelsAutoDownload": "Auto Download ALL WAN Models from Kijai's repo",
+    "WANALMAMAModelsAutoDownload": "Auto Download ALL WAN Models from Comfy-Org/Wan_2.1_ComfyUI_repackaged",
+    "ALIMAMAFUNCONTROLWANModelsAutoDownload": "Auto Download ALL WAN Models fromalibaba-pai/Wan2.1-Fun-1.3B-Control",
     }
