@@ -1,6 +1,6 @@
 [project]
 name = "autodownloadmodels"
-description = "This custom node helps to auto download models from huggingface"
+description = "This custom node helps to auto download models from huggingface."
 version = "1.0.0"
 license = {file = "LICENSE"}
 dependencies = ["huggingface_hub[hf_transfer]", "hf_transfer", "rapidfuzz"]
