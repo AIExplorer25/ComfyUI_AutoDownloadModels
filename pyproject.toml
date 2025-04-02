@@ -10,6 +10,6 @@ Repository = "https://github.com/AIExplorer25/ComfyUI_AutoDownloadModels"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "aiexplorer25"
 DisplayName = "ComfyUI_AutoDownloadModels"
 Icon = ""
