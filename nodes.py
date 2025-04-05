@@ -471,6 +471,8 @@ class AutoInstallRequirements_txt:
             status=[]
             requirements_files = []
             for root, dirs, files in os.walk(custom_nodes_path):
+                if 'ComfyUI-Manager' in root:
+                    continue
                 for file in files:
                     if file == "requirements.txt":
                         full_path = os.path.join(root, file)
