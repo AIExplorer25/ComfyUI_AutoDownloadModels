@@ -478,6 +478,7 @@ class AutoInstallRequirements_txt:
             for file in requirements_files:
                 if os.path.isfile(file):
                     try:
+                        status.append("Working on - "+file)
                         result = subprocess.run(
                             [sys.executable, "-m", "pip", "install", "-r", file],
                             check=True,
