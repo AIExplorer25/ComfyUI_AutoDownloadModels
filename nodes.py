@@ -6,6 +6,10 @@ from rapidfuzz import process, fuzz
 from collections import Counter
 from huggingface_hub import list_models
 from huggingface_hub import HfApi
+import subprocess
+import sys
+
+
 class AutoDownloadModels:
     @classmethod
     def INPUT_TYPES(s):
@@ -446,6 +450,48 @@ class SetModelPath:
 
             return (modelandpath,)
 
+
+
+class AutoInstallRequirements_txt:
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "custom_nodes_path": ("STRING", {"tooltip": "Enter custom_nodes_path"}),
+
+            },
+        }
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("status",)
+    FUNCTION = "InstallAllCustomNodes"
+    CATEGORY = "InstallAllCustomNodes"
+    DESCRIPTION = "This node downloads models from huggingface models"
+
+    def InstallAllCustomNodes(self, custom_nodes_path):
+            status=[]
+            requirements_files = []
+            for root, dirs, files in os.walk(custom_nodes_path):
+                for file in files:
+                    if file == "requirements.txt":
+                        full_path = os.path.join(root, file)
+                        requirements_files.append(full_path)
+            for file in requirements_files:
+                if os.path.isfile(file):
+                    try:
+                        result = subprocess.run(
+                            [sys.executable, "-m", "pip", "install", "-r", file],
+                            check=True,
+                            capture_output=True,
+                            text=True
+                        )
+                        
+                        status.append(result.stdout)
+                    except subprocess.CalledProcessError as e:
+                        
+                        status.append(e.stderr)
+            
+
+            return ("/n ".join(status),)
 NODE_CLASS_MAPPINGS = {
     "AutoDownloadModels": AutoDownloadModels,
      "ShowModelsAndFolderMappings": ShowModelsAndFolderMappings,
@@ -455,6 +501,7 @@ NODE_CLASS_MAPPINGS = {
       "WANModelsAutoDownload": WANModelsAutoDownload,
       "WANALMAMAModelsAutoDownload": WANALMAMAModelsAutoDownload,
       "ALIMAMAFUNCONTROLWANModelsAutoDownload": ALIMAMAFUNCONTROLWANModelsAutoDownload,
+      "AutoInstallRequirements_txt": AutoInstallRequirements_txt,
       
       
       
@@ -469,4 +516,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "WANModelsAutoDownload": "Auto Download ALL WAN Models from Kijai's repo",
     "WANALMAMAModelsAutoDownload": "Auto Download ALL WAN Models from Comfy-Org/Wan_2.1_ComfyUI_repackaged",
     "ALIMAMAFUNCONTROLWANModelsAutoDownload": "Auto Download ALL WAN Models fromalibaba-pai/Wan2.1-Fun-1.3B-Control",
+    "AutoInstallRequirements_txt": "Auto Install All Custom Nodes Requirements_txt",
     }
